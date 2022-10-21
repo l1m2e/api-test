@@ -1,4 +1,5 @@
 {
+	"swagger": "2.0",
 	"info": {
 		"title": "版本管理系统",
 		"description": "",
