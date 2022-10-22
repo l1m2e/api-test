@@ -8,6 +8,24 @@
   "tags": [
     {
       "name": "登录"
+    },
+    {
+      "name": "权限模块"
+    },
+    {
+      "name": "用户模块"
+    },
+    {
+      "name": "文件模块"
+    },
+    {
+      "name": "问题模块"
+    },
+    {
+      "name": "版本模块"
+    },
+    {
+      "name": "文档模块"
     }
   ],
   "paths": {
@@ -356,6 +374,150 @@
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-40831960-run"
       }
     },
+    "/permission/pro": {
+      "post": {
+        "summary": "51-1添加模块",
+        "x-apifox-folder": "权限模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "权限模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "permissionCode": {
+                    "type": "string",
+                    "description": "权限唯一标识"
+                  },
+                  "permissionName": {
+                    "type": "string",
+                    "description": "菜单名字"
+                  },
+                  "fatherId": {
+                    "type": "integer",
+                    "description": "父级id"
+                  },
+                  "path": {
+                    "type": "string",
+                    "description": "路径"
+                  },
+                  "interfaceNum": {
+                    "type": "string",
+                    "description": "51-1"
+                  }
+                },
+                "x-apifox-orders": [
+                  "permissionCode",
+                  "permissionName",
+                  "fatherId",
+                  "path",
+                  "interfaceNum"
+                ],
+                "required": [
+                  "permissionCode",
+                  "permissionName",
+                  "fatherId",
+                  "path",
+                  "interfaceNum"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "模块id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "title": "",
+                      "description": "模块名称"
+                    },
+                    "path": {
+                      "type": "string",
+                      "title": "",
+                      "description": "path"
+                    },
+                    "isMenu": {
+                      "type": "integer",
+                      "title": "",
+                      "description": "是否菜单"
+                    },
+                    "pid": {
+                      "type": "integer",
+                      "title": "",
+                      "description": "父id"
+                    },
+                    "write": {
+                      "type": "boolean",
+                      "title": "",
+                      "description": "是否读写"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "path",
+                    "isMenu",
+                    "pid",
+                    "write"
+                  ],
+                  "x-apifox-orders": [
+                    "id",
+                    "name",
+                    "path",
+                    "isMenu",
+                    "pid",
+                    "write"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "id": 118,
+                      "name": "手识接容美达",
+                      "path": "/f0ecb52eb87548b88458b35f4f7ad394",
+                      "isMenu": 1,
+                      "pid": 23,
+                      "write": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-40879434-run"
+      }
+    },
     "/register": {
       "post": {
         "summary": "50-3注册",
@@ -446,6 +608,2232 @@
           }
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41062735-run"
+      }
+    },
+    "/permission/pro/{id}": {
+      "delete": {
+        "summary": "51-2删除模块",
+        "x-apifox-folder": "权限模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "权限模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "messages": "删除成功"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41101765-run"
+      }
+    },
+    "/permission/pro/36": {
+      "put": {
+        "summary": "51-4修改模块",
+        "x-apifox-folder": "权限模块",
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
+        "description": "",
+        "tags": [
+          "权限模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "undefined",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "permissionName": {
+                    "type": "string",
+                    "title": "",
+                    "description": "权限名字"
+                  },
+                  "fatherId": {
+                    "type": "integer",
+                    "title": "",
+                    "description": "父ID"
+                  }
+                },
+                "x-apifox-orders": [
+                  "permissionName",
+                  "fatherId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41144447-run"
+      }
+    },
+    "/user/getUserList": {
+      "get": {
+        "summary": "52-1获取用户列表",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "从第几页开始",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "取多少条  负数取全部",
+            "required": true,
+            "example": "3",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "id"
+                          },
+                          "uid": {
+                            "type": "string",
+                            "title": "",
+                            "description": "用户名"
+                          },
+                          "name": {
+                            "type": "string",
+                            "title": "",
+                            "description": "姓名"
+                          },
+                          "phone": {
+                            "type": "string",
+                            "title": "",
+                            "description": "手机号"
+                          },
+                          "info": {
+                            "type": "string",
+                            "title": "",
+                            "description": "个人信息"
+                          },
+                          "role": {
+                            "type": "string",
+                            "title": "",
+                            "description": "角色"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "uid",
+                          "name",
+                          "phone",
+                          "info",
+                          "role"
+                        ],
+                        "x-apifox-orders": [
+                          "id",
+                          "uid",
+                          "name",
+                          "phone",
+                          "info",
+                          "role"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "size": {
+                      "type": "integer"
+                    },
+                    "current": {
+                      "type": "integer"
+                    },
+                    "orders": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "optimizeCountSql": {
+                      "type": "boolean"
+                    },
+                    "searchCount": {
+                      "type": "boolean"
+                    },
+                    "countId": {
+                      "type": "null"
+                    },
+                    "maxLimit": {
+                      "type": "null"
+                    },
+                    "pages": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "records",
+                    "total",
+                    "size",
+                    "current",
+                    "orders",
+                    "optimizeCountSql",
+                    "searchCount",
+                    "countId",
+                    "maxLimit",
+                    "pages"
+                  ],
+                  "x-apifox-orders": [
+                    "records",
+                    "total",
+                    "size",
+                    "current",
+                    "orders",
+                    "optimizeCountSql",
+                    "searchCount",
+                    "countId",
+                    "maxLimit",
+                    "pages"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": {
+                      "records": [
+                        {
+                          "id": 1,
+                          "uid": "admin",
+                          "name": "admin",
+                          "phone": "1",
+                          "info": "1",
+                          "role": "管理员"
+                        },
+                        {
+                          "id": 2,
+                          "uid": "user",
+                          "name": "user",
+                          "phone": "12",
+                          "info": "1",
+                          "role": "用户"
+                        },
+                        {
+                          "id": 3,
+                          "uid": "61666",
+                          "name": "值气由她理",
+                          "phone": "18131568601",
+                          "info": "irure non qui cillum",
+                          "role": "用户"
+                        }
+                      ],
+                      "total": 6,
+                      "size": 3,
+                      "current": 1,
+                      "orders": [],
+                      "optimizeCountSql": true,
+                      "searchCount": true,
+                      "countId": null,
+                      "maxLimit": null,
+                      "pages": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41202971-run"
+      }
+    },
+    "/user/getUserPermission/2": {
+      "get": {
+        "summary": "52-2根据id获取用户权限列表",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "title": "",
+                        "description": "权限标识"
+                      },
+                      "path": {
+                        "type": "string",
+                        "title": "",
+                        "description": "路径"
+                      },
+                      "isMenu": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "是否菜单"
+                      },
+                      "pid": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "父id"
+                      },
+                      "write": {
+                        "type": "boolean",
+                        "title": "",
+                        "description": "是否可写"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "path",
+                      "isMenu",
+                      "pid",
+                      "write"
+                    ],
+                    "x-apifox-orders": [
+                      "id",
+                      "name",
+                      "path",
+                      "isMenu",
+                      "pid",
+                      "write"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": [
+                      {
+                        "id": 36,
+                        "name": "周低大111111",
+                        "path": "/aaaaa",
+                        "isMenu": 1,
+                        "pid": 23,
+                        "write": false
+                      },
+                      {
+                        "id": 42,
+                        "name": "华门道般油便",
+                        "path": "/non",
+                        "isMenu": 1,
+                        "pid": 23,
+                        "write": true
+                      },
+                      {
+                        "id": 56,
+                        "name": "可快各开办深",
+                        "path": "/dolorculpaDuisdolore",
+                        "isMenu": 1,
+                        "pid": 28,
+                        "write": true
+                      },
+                      {
+                        "id": 66,
+                        "name": "史活影只山",
+                        "path": "/aliquaoccaecatdolorefugiat",
+                        "isMenu": 1,
+                        "pid": 28,
+                        "write": true
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41210467-run"
+      }
+    },
+    "/user/UserPermission/{id}": {
+      "post": {
+        "summary": "52-3绑定模块",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "用户id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "permissionId": {
+                    "type": "integer",
+                    "description": "模块id"
+                  },
+                  "write": {
+                    "type": "boolean",
+                    "description": "是否读写"
+                  }
+                },
+                "x-apifox-orders": [
+                  "permissionId",
+                  "write"
+                ],
+                "required": [
+                  "permissionId",
+                  "write"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "messages": "成功"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41216730-run"
+      },
+      "delete": {
+        "summary": "52-4解绑模块",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "用户id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "permissionId": {
+                    "description": "模块id",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "permissionId"
+                ],
+                "required": [
+                  "permissionId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "messages": "删除成功"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41269128-run"
+      }
+    },
+    "/permission/menuTop": {
+      "get": {
+        "summary": "51-5获取顶级目录",
+        "x-apifox-folder": "权限模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "权限模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "姓名"
+                      },
+                      "path": {
+                        "type": "string",
+                        "title": "",
+                        "description": "路径"
+                      },
+                      "isMenu": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "是否菜单"
+                      },
+                      "pid": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "父id"
+                      },
+                      "write": {
+                        "type": "boolean",
+                        "title": "",
+                        "description": "是否读写"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "path",
+                      "isMenu",
+                      "pid",
+                      "write"
+                    ],
+                    "x-apifox-orders": [
+                      "id",
+                      "name",
+                      "path",
+                      "isMenu",
+                      "pid",
+                      "write"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": [
+                      {
+                        "id": 23,
+                        "name": "周低大",
+                        "code": "25",
+                        "path": "/",
+                        "isMenu": 1
+                      },
+                      {
+                        "id": 28,
+                        "name": "周低大1",
+                        "code": "200",
+                        "path": "/",
+                        "isMenu": 1
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41255145-run"
+      }
+    },
+    "/problem/add": {
+      "post": {
+        "summary": "53-1添加问题",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "title": "",
+                    "description": "标题 "
+                  },
+                  "permissionId": {
+                    "type": "integer",
+                    "description": "模块id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "问题类型 0一般 1重要 2紧急"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "内容"
+                  },
+                  "srcId": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "文件id数组"
+                  }
+                },
+                "x-apifox-orders": [
+                  "title",
+                  "permissionId",
+                  "type",
+                  "text",
+                  "srcId"
+                ],
+                "required": [
+                  "title",
+                  "permissionId",
+                  "text",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "messages": {
+                      "type": "string",
+                      "description": "id"
+                    }
+                  },
+                  "required": [
+                    "messages"
+                  ],
+                  "x-apifox-orders": [
+                    "messages"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41526471-run"
+      }
+    },
+    "/user/UserPermission/2": {
+      "put": {
+        "summary": "52-5修改读写权限",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "permissionId": {
+                    "type": "integer",
+                    "description": "模块id"
+                  },
+                  "write": {
+                    "type": "boolean",
+                    "description": "是否读写"
+                  }
+                },
+                "x-apifox-orders": [
+                  "permissionId",
+                  "write"
+                ],
+                "required": [
+                  "permissionId",
+                  "write"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41569967-run"
+      }
+    },
+    "/user/del/13": {
+      "delete": {
+        "summary": "52-6删除用户",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41634281-run"
+      }
+    },
+    "/problem/List": {
+      "get": {
+        "summary": "53-2获取问题列表",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "example": "10",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "description": "模块id /则全部",
+            "required": true,
+            "example": "/",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "内容类型 不填则全部",
+            "required": false,
+            "example": "1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/%E9%97%AE%E9%A2%98",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41649645-run"
+      }
+    },
+    "/problem/del/2": {
+      "delete": {
+        "summary": "53-3删除问题",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41715515-run"
+      }
+    },
+    "/problem/{id}": {
+      "get": {
+        "summary": "53-5获取问题详细",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "问题id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "标题"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "permissionName": {
+                      "type": "string"
+                    },
+                    "userUid": {
+                      "type": "string"
+                    },
+                    "updateId": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "integer"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "状态 0未解决 1测试中 2解决"
+                    },
+                    "createdTimestamp": {
+                      "type": "integer"
+                    },
+                    "fileSrcList": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "updateTimestamp": {
+                            "type": "integer"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "id",
+                          "name",
+                          "url",
+                          "updateTimestamp"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "title",
+                    "text",
+                    "permissionName",
+                    "userUid",
+                    "updateId",
+                    "type",
+                    "createdTimestamp",
+                    "fileSrcList",
+                    "state"
+                  ],
+                  "x-apifox-orders": [
+                    "id",
+                    "title",
+                    "text",
+                    "permissionName",
+                    "userUid",
+                    "updateId",
+                    "type",
+                    "state",
+                    "createdTimestamp",
+                    "fileSrcList"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "id": 55,
+                      "title": "测试flv",
+                      "text": "",
+                      "permissionName": "区很机部心计 / 你好",
+                      "userUid": "admin",
+                      "updateId": 0,
+                      "type": 2,
+                      "createdTimestamp": 1665306161000,
+                      "fileSrcList": [
+                        {
+                          "id": 155,
+                          "name": "SampleVideo_1280x720_30mb.flv",
+                          "url": "/api/fileSrc/download/155/null",
+                          "updateTimestamp": 1665306160000
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41725027-run"
+      }
+    },
+    "/UpdateDiary/addUpdateDiary": {
+      "post": {
+        "summary": "54-1添加版本",
+        "x-apifox-folder": "版本模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "版本模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "描述"
+                  },
+                  "version": {
+                    "description": "版本",
+                    "type": "integer"
+                  },
+                  "problemId": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "问题id数组"
+                  },
+                  "permissionId": {
+                    "type": "integer",
+                    "description": "模块id"
+                  },
+                  "srcId": {
+                    "description": "文件id数组",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "text",
+                  "version",
+                  "problemId",
+                  "permissionId",
+                  "srcId"
+                ],
+                "required": [
+                  "text",
+                  "version",
+                  "problemId",
+                  "permissionId",
+                  "srcId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "messages": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "messages"
+                  ],
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": [
+                    "messages"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "messages": "24"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41738906-run"
+      }
+    },
+    "/problem/myList": {
+      "get": {
+        "summary": "53-6获取我的问题列表",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "query",
+            "description": "模块id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/%E9%97%AE%E9%A2%98",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": {
+                      "records": [
+                        {
+                          "id": 6,
+                          "title": "问题",
+                          "text": "25",
+                          "permissionName": "周低大>华门道般油便",
+                          "userUid": "admin",
+                          "updateId": 0,
+                          "type": 0,
+                          "createdTimestamp": 1664179865000
+                        },
+                        {
+                          "id": 10,
+                          "title": "2545245",
+                          "text": "2452",
+                          "permissionName": "周低大>周低大111111",
+                          "userUid": "admin",
+                          "updateId": 16,
+                          "type": 0,
+                          "createdTimestamp": 1664182115000
+                        },
+                        {
+                          "id": 11,
+                          "title": "25452452",
+                          "text": "24522",
+                          "permissionName": "周低大>周低大111111",
+                          "userUid": "admin",
+                          "updateId": 15,
+                          "type": 0,
+                          "createdTimestamp": 1664182267000
+                        },
+                        {
+                          "id": 12,
+                          "title": "25452452",
+                          "text": "24522",
+                          "permissionName": "周低大>周低大111111",
+                          "userUid": "admin",
+                          "updateId": 15,
+                          "type": 0,
+                          "createdTimestamp": 1664182294000
+                        },
+                        {
+                          "id": 13,
+                          "title": "超多文件的问题",
+                          "text": "24522",
+                          "permissionName": "周低大>周低大111111",
+                          "userUid": "admin",
+                          "updateId": 0,
+                          "type": 0,
+                          "createdTimestamp": 1664182985000
+                        }
+                      ],
+                      "total": 8,
+                      "size": 5,
+                      "current": 1,
+                      "orders": [],
+                      "optimizeCountSql": true,
+                      "searchCount": true,
+                      "countId": null,
+                      "maxLimit": null,
+                      "pages": 2
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41788147-run"
+      }
+    },
+    "/permission/list": {
+      "get": {
+        "summary": "51-6获取模块列表",
+        "x-apifox-folder": "权限模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "权限模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "模块id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "title": "",
+                        "description": "模块名称"
+                      },
+                      "path": {
+                        "type": "string",
+                        "title": ""
+                      },
+                      "isMenu": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "是否菜单"
+                      },
+                      "pid": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "父id"
+                      },
+                      "write": {
+                        "type": "boolean",
+                        "title": "",
+                        "description": "是否读写"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "path",
+                      "isMenu",
+                      "pid",
+                      "write"
+                    ],
+                    "x-apifox-orders": [
+                      "id",
+                      "name",
+                      "path",
+                      "isMenu",
+                      "pid",
+                      "write"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": [
+                      {
+                        "id": 23,
+                        "name": "周低大",
+                        "path": "/minim velit ipsum sed nisi",
+                        "isMenu": 1,
+                        "pid": 0,
+                        "write": false
+                      },
+                      {
+                        "id": 28,
+                        "name": "周低大1",
+                        "path": "/aaaa",
+                        "isMenu": 1,
+                        "pid": 0,
+                        "write": false
+                      },
+                      {
+                        "id": 36,
+                        "name": "周低大111111",
+                        "path": "/aaaa1111",
+                        "isMenu": 1,
+                        "pid": 23,
+                        "write": false
+                      },
+                      {
+                        "id": 42,
+                        "name": "华门道般油便",
+                        "path": "/non",
+                        "isMenu": 1,
+                        "pid": 23,
+                        "write": false
+                      },
+                      {
+                        "id": 44,
+                        "name": "律适取",
+                        "path": "/irure",
+                        "isMenu": 1,
+                        "pid": 28,
+                        "write": false
+                      },
+                      {
+                        "id": 52,
+                        "name": "律适",
+                        "path": "/irure2",
+                        "isMenu": 1,
+                        "pid": 28,
+                        "write": false
+                      },
+                      {
+                        "id": 54,
+                        "name": "家了器",
+                        "path": "/consequat in culpa nulla",
+                        "isMenu": 1,
+                        "pid": 28,
+                        "write": false
+                      },
+                      {
+                        "id": 56,
+                        "name": "可快各开办深",
+                        "path": "/dolor culpa Duis dolore",
+                        "isMenu": 1,
+                        "pid": 28,
+                        "write": false
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41811354-run"
+      }
+    },
+    "/fileSrc/updateFile": {
+      "post": {
+        "summary": "55-2上传文件单个",
+        "x-apifox-folder": "文件模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文件模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "required": [
+                  "file"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "62",
+                  "type": "undefined",
+                  "description": "文件id"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41907894-run"
+      }
+    },
+    "/UpdateDiary/list": {
+      "get": {
+        "summary": "54-2获取版本列表",
+        "x-apifox-folder": "版本模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "版本模块"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "query",
+            "description": "模块id  可空查全部",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "title": "",
+                            "description": "版本名称"
+                          },
+                          "version": {
+                            "type": "string",
+                            "title": "",
+                            "description": "版本号"
+                          },
+                          "permissionId": {
+                            "type": "integer",
+                            "title": "",
+                            "description": "模块id"
+                          },
+                          "userUid": {
+                            "type": "string",
+                            "title": "",
+                            "description": "解决的uid"
+                          },
+                          "createdTimestamp": {
+                            "type": "integer",
+                            "title": "",
+                            "description": "时间"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "version",
+                          "permissionId",
+                          "userUid",
+                          "createdTimestamp"
+                        ],
+                        "x-apifox-orders": [
+                          "id",
+                          "name",
+                          "version",
+                          "permissionId",
+                          "userUid",
+                          "createdTimestamp"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "description": "数据"
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "size": {
+                      "type": "integer"
+                    },
+                    "current": {
+                      "type": "integer"
+                    },
+                    "orders": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "optimizeCountSql": {
+                      "type": "boolean"
+                    },
+                    "searchCount": {
+                      "type": "boolean"
+                    },
+                    "countId": {
+                      "type": "null"
+                    },
+                    "maxLimit": {
+                      "type": "null"
+                    },
+                    "pages": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "records",
+                    "total",
+                    "size",
+                    "current",
+                    "orders",
+                    "optimizeCountSql",
+                    "searchCount",
+                    "countId",
+                    "maxLimit",
+                    "pages"
+                  ],
+                  "x-apifox-orders": [
+                    "records",
+                    "total",
+                    "size",
+                    "current",
+                    "orders",
+                    "optimizeCountSql",
+                    "searchCount",
+                    "countId",
+                    "maxLimit",
+                    "pages"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-41974939-run"
+      }
+    },
+    "/UpdateDiary/problem/{id}": {
+      "get": {
+        "summary": "54-4根据id获取问题内容",
+        "x-apifox-folder": "版本模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "版本模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "版本id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "问题id"
+                      },
+                      "title": {
+                        "type": "string",
+                        "title": "",
+                        "description": "问题标题"
+                      },
+                      "type": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "问题类型"
+                      },
+                      "createdTimestamp": {
+                        "type": "integer",
+                        "title": "",
+                        "description": "问题时间"
+                      }
+                    },
+                    "x-apifox-orders": [
+                      "id",
+                      "title",
+                      "type",
+                      "createdTimestamp"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42017773-run"
+      }
+    },
+    "/fileSrc/list": {
+      "get": {
+        "summary": "55-1查询所有文件列表",
+        "x-apifox-folder": "文件模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文件模块"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42167890-run"
+      }
+    },
+    "/problem/put/{id}": {
+      "put": {
+        "summary": "53-4修改问题",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "问题id",
+            "required": true,
+            "example": "63",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "标题"
+                  },
+                  "permissionId": {
+                    "type": "integer",
+                    "description": "模块id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "问题类型"
+                  },
+                  "text": {
+                    "type": "string",
+                    "description": "内容"
+                  },
+                  "state": {
+                    "type": "integer",
+                    "description": "状态 0未解决 1测试中 2解决"
+                  },
+                  "srcId": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "文件id数组"
+                  }
+                },
+                "x-apifox-orders": [
+                  "title",
+                  "permissionId",
+                  "type",
+                  "text",
+                  "state",
+                  "srcId"
+                ],
+                "required": [
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42235820-run"
+      }
+    },
+    "/UpdateDiary/put/{id}": {
+      "put": {
+        "summary": "54-5修改版本信息",
+        "x-apifox-folder": "版本模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "版本模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "版本id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "version": {
+                    "type": "integer",
+                    "description": "版本号"
+                  },
+                  "problemId": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    },
+                    "description": "问题id数组"
+                  },
+                  "permissionId": {
+                    "type": "string",
+                    "description": "模块id"
+                  },
+                  "srcId": {
+                    "description": "文件id",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "version",
+                  "problemId",
+                  "permissionId",
+                  "srcId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42293118-run"
+      }
+    },
+    "/user/putMyUser": {
+      "get": {
+        "summary": "52-7修改个人信息",
+        "x-apifox-folder": "用户模块",
+        "x-apifox-status": "deprecated",
+        "deprecated": true,
+        "description": "",
+        "tags": [
+          "用户模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "info": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "name",
+                  "password",
+                  "phone",
+                  "info"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42478845-run"
       }
     },
     "/user/getPermissionList": {
@@ -670,10 +3058,948 @@
         },
         "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42741865-run"
       }
+    },
+    "/fileSrc/download/{id}/{time}": {
+      "get": {
+        "summary": "55-3下载文件",
+        "x-apifox-folder": "文件模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文件模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "文件id",
+            "required": true,
+            "example": "148",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "time",
+            "in": "path",
+            "description": "文件时间戳",
+            "required": true,
+            "example": "1665285452",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-42906882-run"
+      }
+    },
+    "/UpdateDiary/versionMax": {
+      "get": {
+        "summary": "54-6获取最大版本号",
+        "x-apifox-folder": "版本模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "版本模块"
+        ],
+        "parameters": [
+          {
+            "name": "permissionId",
+            "in": "query",
+            "description": "模块ID",
+            "required": true,
+            "example": "36",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43126800-run"
+      }
+    },
+    "/permission/checkPermission/{id}": {
+      "get": {
+        "summary": "51-7根据模块id获取读写权限",
+        "x-apifox-folder": "权限模块",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "权限模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "模块id",
+            "required": true,
+            "example": "36",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "true",
+                  "type": "boolean",
+                  "description": "是否有读写权限"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43257017-run"
+      }
+    },
+    "/document/add": {
+      "post": {
+        "summary": "57-1添加文档",
+        "x-apifox-folder": "文档模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文档模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "文档名称"
+                  },
+                  "version": {
+                    "type": "string",
+                    "title": "",
+                    "description": "文档版本"
+                  },
+                  "permissionId": {
+                    "type": "integer",
+                    "title": "",
+                    "description": "模块id"
+                  },
+                  "srcId": {
+                    "type": "integer",
+                    "title": "",
+                    "description": "文件id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "name",
+                  "version",
+                  "permissionId",
+                  "srcId"
+                ],
+                "required": [
+                  "name",
+                  "version",
+                  "permissionId",
+                  "srcId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43634223-run"
+      }
+    },
+    "/document/list": {
+      "get": {
+        "summary": "57-2获取文档列表",
+        "x-apifox-folder": "文档模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文档模块"
+        ],
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "description": "第几页",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "大小",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "query",
+            "description": "模块id",
+            "required": false,
+            "example": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43676210-run"
+      }
+    },
+    "/document/put/{id}": {
+      "put": {
+        "summary": "57-3修改文档文件",
+        "x-apifox-folder": "文档模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文档模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "文档id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "srcId": {
+                    "type": "integer",
+                    "description": "文件id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "srcId"
+                ],
+                "required": [
+                  "srcId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43706058-run"
+      }
+    },
+    "/UpdateDiary/{id}": {
+      "get": {
+        "summary": "54-7根据id获取版本完整信息",
+        "x-apifox-folder": "版本模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "版本模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "版本id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43733783-run"
+      }
+    },
+    "/fileSrc/clearCheck": {
+      "get": {
+        "summary": "55-4检查可以清理的数据和文件",
+        "x-apifox-folder": "文件模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "文件模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43799740-run"
+      }
+    },
+    "/problem/addCode": {
+      "post": {
+        "summary": "设置一个code",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "maxUpload": {
+                    "type": "integer",
+                    "description": "最大上传数量 默认1"
+                  },
+                  "time": {
+                    "description": "失效时间戳",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "maxUpload",
+                  "time"
+                ],
+                "required": [
+                  "time"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43851265-run"
+      }
+    },
+    "/problem/getCodeList": {
+      "get": {
+        "summary": "获取code信息列表",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43927735-run"
+      }
+    },
+    "/problem/putCode": {
+      "get": {
+        "summary": "消费一个code",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-43949884-run"
+      }
+    },
+    "/problem/addProblemFile/{id}": {
+      "post": {
+        "summary": "53-9添加问题文件",
+        "x-apifox-folder": "问题模块",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "问题模块"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "问题id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxsLXVzZXIiLCJpYXQiOjE2NjYwNTk0NjYsImV4cCI6MTY2NjE0NTg2NiwidWlkIjoiYWRtaW4ifQ.rnwAHxpqiLtU0fFsO50tSOq1P3kIVDNND1Kq0ywn6-g",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox'": "https://www.apifox.cn/web/project/1649814/apis/api-44555018-run"
+      }
     }
   },
   "components": {
     "schemas": {
+      "测试": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "标题"
+          }
+        },
+        "x-apifox-orders": [
+          "title"
+        ],
+        "required": [
+          "title"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "问题": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "标题"
+                },
+                "text": {
+                  "type": "string",
+                  "title": "",
+                  "description": "内容"
+                },
+                "permissionName": {
+                  "type": "string",
+                  "title": "",
+                  "description": "权限标识"
+                },
+                "userUid": {
+                  "type": "string",
+                  "title": "",
+                  "description": "用户uid"
+                },
+                "updateId": {
+                  "type": "integer",
+                  "title": "",
+                  "description": "版本id"
+                },
+                "type": {
+                  "type": "integer",
+                  "title": "",
+                  "description": "类型"
+                },
+                "state": {
+                  "description": "状态 0未解决 1测试中 2解决",
+                  "type": "integer"
+                },
+                "createdTimestamp": {
+                  "type": "integer",
+                  "title": "",
+                  "description": "创建时间"
+                },
+                "updateDiaryVo": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "userUid": {
+                      "type": "string",
+                      "title": "",
+                      "description": "用户uid"
+                    },
+                    "updateTimestamp": {
+                      "type": "integer",
+                      "title": "",
+                      "description": "更新时间"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "userUid",
+                    "updateTimestamp"
+                  ],
+                  "x-apifox-orders": [
+                    "id",
+                    "userUid",
+                    "updateTimestamp"
+                  ],
+                  "title": "",
+                  "description": "版本信息",
+                  "x-apifox-ignore-properties": []
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "text",
+                "permissionName",
+                "userUid",
+                "updateId",
+                "type",
+                "createdTimestamp",
+                "updateDiaryVo",
+                "state"
+              ],
+              "x-apifox-orders": [
+                "id",
+                "title",
+                "text",
+                "permissionName",
+                "userUid",
+                "updateId",
+                "type",
+                "state",
+                "createdTimestamp",
+                "updateDiaryVo"
+              ],
+              "x-apifox-ignore-properties": []
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "总条数"
+          },
+          "size": {
+            "type": "integer",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "description": "当前页"
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "排序字段信息"
+          },
+          "optimizeCountSql": {
+            "type": "boolean",
+            "description": "自动优化 COUNT SQL"
+          },
+          "searchCount": {
+            "type": "boolean",
+            "description": "是否进行 count 查询"
+          },
+          "countId": {
+            "type": "null",
+            "description": "计数"
+          },
+          "maxLimit": {
+            "type": "null",
+            "description": "计数"
+          },
+          "pages": {
+            "type": "integer",
+            "description": "共几页"
+          }
+        },
+        "required": [
+          "records",
+          "total",
+          "size",
+          "current",
+          "orders",
+          "optimizeCountSql",
+          "searchCount",
+          "countId",
+          "maxLimit",
+          "pages"
+        ],
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current",
+          "orders",
+          "optimizeCountSql",
+          "searchCount",
+          "countId",
+          "maxLimit",
+          "pages"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "权限": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string",
+              "description": "权限名称"
+            },
+            "path": {
+              "type": "string",
+              "title": "",
+              "description": "path"
+            },
+            "isMenu": {
+              "type": "integer",
+              "title": "",
+              "description": "是否菜单"
+            },
+            "pid": {
+              "type": "integer",
+              "title": "",
+              "description": "父id"
+            },
+            "write": {
+              "type": "boolean",
+              "title": "",
+              "description": "读写"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "path",
+            "isMenu",
+            "pid",
+            "write"
+          ],
+          "x-apifox-orders": [
+            "id",
+            "name",
+            "path",
+            "isMenu",
+            "pid",
+            "write"
+          ],
+          "x-apifox-ignore-properties": []
+        },
+        "x-apifox-folder": ""
+      },
       "登录": {
         "type": "object",
         "properties": {
